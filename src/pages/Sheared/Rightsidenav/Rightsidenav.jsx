@@ -1,5 +1,11 @@
 import { FcGoogle } from 'react-icons/fc'
 import { AiOutlineGithub } from 'react-icons/ai'
+import qZone1 from '../../../assets/qZone1.png'
+import qZone2 from '../../../assets/qZone2.png'
+import qZone3 from '../../../assets/qZone3.png'
+
+
+
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa'
 const RightSideNav = () => {
     return (
@@ -29,7 +35,17 @@ const RightSideNav = () => {
                     <FaInstagram className='text-[#C13584]'></FaInstagram>
                     Twitter
                 </a>
+
+            </div>
+            {/* Q zone  */}
+            <div className='p-4 space-y-4 mb-6'>
+                <h2 className="font-semibold text-lg">Q Zone</h2>
+                <img src={qZone1} alt="" />
+                <img src={qZone2} alt="" />
+                <img src={qZone3} alt="" />
                 
+                
+
             </div>
 
         </div>
