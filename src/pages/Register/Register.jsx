@@ -1,13 +1,12 @@
-import { Link } from "react-router-dom";
 import Navbar from "../Sheared/Navbar/Navbar";
+import { Link } from "react-router-dom";
+const Register = () => {
 
-const Login = () => {
-
-    const handleLogin = e => {
-        e.preventDefault()
-        const email = e.target.email.value;
-        const password = e.target.password.value;
-        console.log(email, password)
+    const handleRegister = e => {
+        e.preventDefault();
+        console.log(e.currentTarget);
+        const form = new FormData(e.currentTarget);
+        console.log(form.get('password'))
     }
 
 
@@ -16,10 +15,18 @@ const Login = () => {
             <Navbar></Navbar>
             <div className="hero-content flex-col ">
                 <div className="text-center lg:text-left">
-                    <h1 className="text-5xl font-bold">Login now!</h1>
+                    <h1 className="text-5xl font-bold">Please Register</h1>
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                    <form onSubmit={handleLogin} className="card-body">
+                    <form onSubmit={handleRegister} className="card-body">
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Name</span>
+                            </label>
+                            <input type="text"
+                                name="name"
+                                placeholder=" your name" className="input input-bordered" required />
+                        </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
@@ -40,10 +47,10 @@ const Login = () => {
                             </label>
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">Login</button>
+                            <button className="btn btn-primary">Register</button>
                         </div>
                     </form>
-                    <p className="mb-4 text-center">Do not have an account ? Please <Link className="font-bold text-blue-600 underline" to="/register">Register</Link> </p>
+                    <p className="mb-4 text-center">Already have an account ? Please <Link className="font-bold text-blue-600 underline" to="/login">Login</Link> </p>
                 </div>
             </div>
         </div>
@@ -51,4 +58,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;
