@@ -1,13 +1,31 @@
+import { useContext } from "react";
 import Navbar from "../Sheared/Navbar/Navbar";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
 const Register = () => {
+
+    const { createUser } = useContext(AuthContext);
+
+
+
 
     const handleRegister = e => {
         e.preventDefault();
         console.log(e.currentTarget);
         const form = new FormData(e.currentTarget);
-        console.log(form.get('password'))
+        const email = form.get('email');
+        const password = form.get('password');
+        const name = form.get('name')
+        console.log(email, name, password)
+
+        createUser(email, password)
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => console.error(error))
     }
+
+
 
 
     return (
